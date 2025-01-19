@@ -1,5 +1,3 @@
----
-
 # Setting Up Angular + Electron Project with TypeScript and Electron-Builder  
 
 In this guide, we’ll walk through the setup of a full-fledged Angular and Electron project, using **TypeScript** and the **Electron-Builder** package. By the end, you’ll have a working desktop application ready to be deployed.  
@@ -216,6 +214,3 @@ Add the following configuration to a `tsconfig.json` file in the root:
 
 Your packaged app will be available in the `build` folder. Run the `.exe` file and enjoy!  
 
----
-
-This guide ensures you can set up a seamless development workflow for **Angular + Electron** using **TypeScript** and **Electron-Builder**.
