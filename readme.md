@@ -1,5 +1,3 @@
-Here's a refined and better-organized version of your article:  
-
 ---
 
 # Setting Up Angular + Electron Project with TypeScript and Electron-Builder  
