@@ -1,0 +1,72 @@
+{
+  "name": "electron-angular-setup",
+  "version": "1.0.0",
+  "description": "The Demo Application using Angular Electron Template",
+  "main": "dist/main.js",
+  "author": "Suraj Kushvaha",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "app:serve": "npm-run-all -p angular:serve build:watch  electron:serve ",
+    "angular:serve": "cd angular && ng serve",
+    "electron:serve": " electron ./dist/main.js --serve",
+    "start": "npm run build && electron ./dist/main.js",
+    "deploy": "npm run remove && cd angular && npm run build && cd.. && npm run build && electron-builder",
+    "remove": "rimraf -rf ./dist && rimraf -rf ./build",
+    "electron": "electron"
+  },
+  "devDependencies": {
+    "7zip-bin": "^5.2.0",
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "electron-reloader": "^1.2.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1"
+  },
+  "build": {
+    "generateUpdatesFilesForAllChannels": true,
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "icon": "assets/images/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        "zip"
+      ]
+    },
+    "mac": {
+      "icon": "assets/images/icon.icns",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "zip"
+      ],
+      "category": "Utility",
+      "icon": "assets/images/linux-icon.png"
+    }
+  }
+}
